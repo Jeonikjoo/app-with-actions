@@ -47,5 +47,5 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
-        source: ./target/*.jar
+        source: ./*.jar
         target: /home/ubuntu/app
