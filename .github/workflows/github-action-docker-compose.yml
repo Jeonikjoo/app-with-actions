@@ -58,7 +58,12 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/app-with-actions:latest
-
+        
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    
+    steps:
     - name: Deploy Docker compose to EC2
       uses: appleboy/scp-action@v0.1.7
       with: 
@@ -67,3 +72,12 @@ jobs:
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         source: "docker-compose.yml"
         target: "/home/ubuntu/app"
+
+    - name: Execute deployment script
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        script: |
+          sudo docker-compose up
