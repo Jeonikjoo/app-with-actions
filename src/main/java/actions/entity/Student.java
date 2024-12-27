@@ -25,4 +25,12 @@ public class Student {
 				.name(student.getName())
 				.build();
 	}
+	
+	private Student(String sname) {
+		this.name = sname;
+	}
+	
+	public static Student of(String sname) {
+		return new Student(sname);
+	}
 }

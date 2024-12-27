@@ -24,6 +24,13 @@ public class StudentService {
 		return studentRepository.findById(sid).map(Student::toDto).orElseThrow();
 	}
 
+	public StudentDto insertStudent(String sname) {
+		
+		Student student = studentRepository.save(Student.of(sname));
+	
+		return student.toDto(student);
+	}
+
 	
 
 	
