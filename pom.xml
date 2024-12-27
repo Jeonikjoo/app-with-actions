@@ -69,7 +69,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<skipTests>true</skipTests>
+					<testFailureIgnore>true</testFailureIgnore>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
