@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
-          docker run -n gitActionTest -d zza1541/app-with-actions:latest
+          docker run -d zza1541/app-with-actions:latest
