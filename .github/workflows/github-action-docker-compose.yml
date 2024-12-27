@@ -18,8 +18,7 @@ jobs:
         
     - name: Make application.properties
       run: |
-        cd ./src/main/resources
-        touch ./application.properties
+        touch ./src/main/resources/application.properties
         echo "${{secrets.APPLICATION_PROPERTEIS}}" >> ./application.properties
       shell: bash
         
