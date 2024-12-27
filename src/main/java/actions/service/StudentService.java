@@ -42,6 +42,11 @@ public class StudentService {
 		return student.toDto(student);
 	}
 
+	public void deleteStudent(Long sid) {
+		studentRepository.deleteById(sid);
+		
+	}
+
 	
 
 	
