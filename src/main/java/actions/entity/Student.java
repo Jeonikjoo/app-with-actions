@@ -30,7 +30,13 @@ public class Student {
 		this.name = sname;
 	}
 	
+	private Student() {}
+	
 	public static Student of(String sname) {
 		return new Student(sname);
+	}
+	
+	public void updateStudentName(String sname) {
+		this.name = sname;
 	}
 }

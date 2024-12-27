@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import actions.dto.StudentDto;
@@ -32,4 +35,17 @@ public class StudentController {
 		
 		return student;
 	}
+	
+	@PostMapping("/students")
+	public StudentDto insertStudent(String sname) {
+		StudentDto student = studentService.insertStudent(sname);
+		return student;
+	}
+	
+	@PutMapping("/students/{sid}")
+	public StudentDto updateStudent(@PathVariable Long sid, String sname) {
+
+		StudentDto student = studentService.updateStudent(sid, sname);
+		return student;
+	} 
 }

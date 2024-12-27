@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import actions.dto.StudentDto;
 import actions.entity.Student;
 import actions.repository.StudentRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -24,10 +25,20 @@ public class StudentService {
 		return studentRepository.findById(sid).map(Student::toDto).orElseThrow();
 	}
 
+	@Transactional
 	public StudentDto insertStudent(String sname) {
 		
 		Student student = studentRepository.save(Student.of(sname));
 	
+		return student.toDto(student);
+	}
+	
+	@Transactional
+	public StudentDto updateStudent(Long sid, String sname) {
+		
+		Student student = studentRepository.findById(sid).orElseThrow();
+		student.updateStudentName(sname);
+
 		return student.toDto(student);
 	}
 
