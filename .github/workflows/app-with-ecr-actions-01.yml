@@ -34,7 +34,7 @@ jobs:
       env:
         REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
         REGISTRY_ALIAS: ${{ secrets.ECR_ID }}
-        REPOSITORY: first-ecr
+        REPOSITORY: first-private-ecr
         IMAGE_TAG: latest
       run: |
         aws ecr-private get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin public.ecr.aws/${{ secrets.ECR_ID }}
