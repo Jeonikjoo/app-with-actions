@@ -1,4 +1,4 @@
-name: App With Github Actions with docker-compose CI/CD
+name: Github Actions with rds CI/CD
 
 on:
   workflow_dispatch
