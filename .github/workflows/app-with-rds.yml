@@ -1,7 +1,7 @@
 name: Github Actions with rds CI/CD
 
 on:
-  workflow_dispatch
+  push
 
 jobs:
   ci:
