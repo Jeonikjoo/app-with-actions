@@ -39,4 +39,5 @@ jobs:
       run: |
         aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ${{ secrets.ECR_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com
         docker build -t $REPOSITORY:$IMAGE_TAG .
+        docker tag $REPOSITORY:$IMAGE_TAG ${{ secrets.ECR_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/$REPOSITORY:$IMAGE_TAG
         docker push ${{ secrets.ECR_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/$REPOSITORY:$IMAGE_TAG
