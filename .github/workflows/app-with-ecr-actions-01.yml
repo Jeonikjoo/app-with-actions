@@ -35,10 +35,10 @@ jobs:
         name: app
         path: ./target/*.jar
 
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: app
+    # - name: Download artifact
+    #   uses: actions/download-artifact@v4
+    #   with:
+    #     name: app
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
