@@ -35,9 +35,6 @@ jobs:
         name: app
         path: ./target/*.jar
 
-    - name: Checkout
-      uses: actions/checkout@v4
-
     - name: Download artifact
       uses: actions/download-artifact@v4
       with:
